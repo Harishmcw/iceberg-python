@@ -47,7 +47,7 @@ jobs:
       - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
         with:
           python-version: |
-            ${{ matrix.os != 'windows-11-arm' && '3.10' || '' }}
+            3.10
             3.11
             3.12
             3.13
@@ -60,7 +60,7 @@ jobs:
         shell: bash
         env:
           VERSION: ${{ inputs.VERSION }}
-        run: uv version "$VERSION" --no-sync
+        run: uv version "$VERSION"
 
       # Publish the source distribution with the version that's in
       # the repository, otherwise the tests will fail
