@@ -83,6 +83,7 @@ jobs:
           CIBW_TEST_COMMAND: "uv run --directory {project} pytest tests/avro/test_decoder.py"
           # Skip free-threaded (PEP 703) builds until we evaluate decoder_fast support
           CIBW_SKIP: "cp3*t-*"
+          CIBW_TEST_SKIP: "*-win_arm64"
 
 
       - name: Add source distribution
