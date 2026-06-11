@@ -60,7 +60,7 @@ jobs:
         shell: bash
         env:
           VERSION: ${{ inputs.VERSION }}
-        run: uv version "$VERSION"
+        run: uv version "$VERSION" --no-sync
 
       # Publish the source distribution with the version that's in
       # the repository, otherwise the tests will fail
@@ -83,7 +83,6 @@ jobs:
           CIBW_TEST_COMMAND: "uv run --directory {project} pytest tests/avro/test_decoder.py"
           # Skip free-threaded (PEP 703) builds until we evaluate decoder_fast support
           CIBW_SKIP: "cp3*t-*"
-          CIBW_TEST_SKIP: "*-win_arm64"
 
 
       - name: Add source distribution
