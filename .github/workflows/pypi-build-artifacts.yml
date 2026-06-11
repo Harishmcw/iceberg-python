@@ -60,7 +60,7 @@ jobs:
         shell: bash
         env:
           VERSION: ${{ inputs.VERSION }}
-        run: uv version "$VERSION"
+        run: uv version "$VERSION" --no-sync
 
       # Publish the source distribution with the version that's in
       # the repository, otherwise the tests will fail
